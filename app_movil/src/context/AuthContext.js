@@ -1,7 +1,7 @@
  /* Archivo contexto globar de autenticación 
  * restuara la sesion guardada al iniciar la app (token, usuario)
  * Expone las funciones de login,register, logout, actualizar perfil
- * cualquier componente que se necesite saber si el usuario esta logueado usa un hook useAuth() en lugar de leer el AysncStorage directamente
+ * cualquier componente que se necesite saber si el usuario está autenticado usa un hook useAuth() en lugar de leer el AsyncStorage directamente
  */
 
 import { createContext, useState,useContext, useEffect, useCallback, useMemo } from 'react';
@@ -43,7 +43,7 @@ export function AuthProvider({ children }) {
     /**
      * Login
      * llama el post/auth/login, guarda el token en asyncStorage y actualiza el estado
-     * global para que toda la app sepa que el usuario esta logueado
+     * global para que toda la app sepa que el usuario está autenticado
      */
     const login = useCallback(async (email, password) => {
         const response = await authService.login(email, password);
@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
 
     /**
      * register
-     * Delega el registro al servicio; no inicia sesion automaticamente
+     * Delega el registro al servicio; no inicia sesión automáticamente
      */
     const register = useCallback(async (data) => {
         return await authService.register(data);
@@ -75,7 +75,7 @@ export function AuthProvider({ children }) {
 
     /**
      * updatePerfil
-     * actualiza los datos del usuario en el bakend y sincroniza el estado local
+     * actualiza los datos del usuario en el backend y sincroniza el estado local
      */
     const updatePerfil = useCallback(async (data) => {
         const usuario = await authService.updatePerfil(data);

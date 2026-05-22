@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const memoryStore = new Map();
 // respaldo temporal en memoria asi AsyncStorage 
 
-//ejecuta una funcion async y si falla devuelve un valor or defecto
+//ejecuta una función async y si falla devuelve un valor o defecto
 //se usa para centralizar el manejo silencioso de errores
 
 async function safeCall(fn, fallbackValue) {
@@ -36,12 +36,12 @@ export async function storageSetItem(key, value) {
 }
 
 // elimina varias claves a la vez 
-// siempre limpia primero el respaldo en memoria y luego intenta en asynstorage
+// siempre limpia primero el respaldo en memoria y luego intenta en AsyncStorage
 
-export async function storageRemoveItem(keys) {
+export async function storageMultiRemove(keys) {
     //siempre limpiar memoryStore primero
     keys.forEach((key) => memoryStore.delete(key));
     await safeCall(async () => {
-        await AsyncStorage.removeItem(keys);
+        await AsyncStorage.multiRemove(keys);
     }, null);
 }

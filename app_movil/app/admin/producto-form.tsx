@@ -2,13 +2,13 @@
  * Este archivo  es el formulario para crear o editar un producto en el panel del admin
  * modo crear se llega desde el boton + crear producto en admin/productos
  * no se recibe ningun parametro de ruta
- * modo editar se llega al precionar un producto la lista
+ * modo editar se llega al presionar un producto en la lista
  * recibe el parametro producto de la url / api como un json
  * al guardar exitosamente regresa a la pnatalla anterior con router.back()
  */
 
 
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useState} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
@@ -93,7 +93,7 @@ export default function AdminProductoForm() {
      * y Resgreos de la pantalla anteriror si fue ecitoso
      */
     const handleSubmit = async () => {
-        // validacion basica los 4 campos obligatorios no puden estar vacios
+        // validación básica los 4 campos obligatorios no pueden estar vacíos
         if(!nombre || !descripcion || !precio || !stock){
             Alert.alert('Error', 'Todos los campos son obligatorios');
             return;

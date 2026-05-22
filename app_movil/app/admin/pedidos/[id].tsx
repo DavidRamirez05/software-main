@@ -6,7 +6,7 @@
  * permite cambiar el estado el pedido pentiente -> enviado -> entregado o cancelar si esta en pendiente
  */
 
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useState, useEffect, useMemo, use} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
@@ -72,11 +72,11 @@ export default function AdminPedidoDetalleScreen(){
     const [pedido,setPedido] = useState<Pedido | null>(null);
     //datos del pedido. null= aun no cargado
     const [loading, setLoading] = useState(false);
-    //activo miestras de hace pa peticiones api
+    //activo mientras se hace las peticiones api
     const [errorMessage, setErrorMessage] = useState('');
     //Mensaje de error si falla la carga
     const [cambiando,setCambiando] = useState(false);
-    // true miestras se esta cambiando el estado de eviado el doble click
+    // true mientras se está cambiando el estado de enviado el doble click
 
     /**
      * funcion  fetchPedido

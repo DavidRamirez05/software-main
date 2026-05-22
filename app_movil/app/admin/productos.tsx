@@ -1,16 +1,16 @@
 
 /**
- * Este archivo gestion de productos panel de administracion
- * lista de tod los productos del sisitema con imangen, descripcion precio y estado
- * permite busar el tiempo real y navega entre paginas 10 por pagina
+ * Este archivo: gestión de productos panel de administración
+ * lista de todos los productos del sistema con imagen, descripción, precio y estado
+ * permite buscar en tiempo real y navega entre páginas 10 por página
  * producto-form con los datos de editar
- * al precionar el producto navega a sus caracateristicas y edicion
- * solo administracion isAdminpuede activar, desactivar y eliminar productos
+ * al presionar el producto navega a sus características y edición
+ * solo administración isAdmin puede activar, desactivar y eliminar productos
  * El auxiliar solo puede ver y navegar
  */
 
 
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useEffect, useState} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
@@ -51,12 +51,12 @@ type Producto = {
 type AuthUser = { rol?: string };
 
 /**
- * helpers de navegacion
- * cats de router para navegacion con string simple sin parametros
+ * helpers de navegación
+ * casts de router para navegación con string simple sin parámetros
  */
 const push = (path: string) => (router as unknown as {push:(p: string)=> void}).push(path);
 
-//cats de router para navegar con pathname + params ( para pasar el obejto a producto)
+//casts de router para navegar con pathname + params ( para pasar el objeto a producto)
 const pushParams = ( pathname: string, params: Record<string, string>) =>
 (router as unknown as {push:(p: {pathname: string; params: Record<string, string>})=> void}). push({pathname, params})
 

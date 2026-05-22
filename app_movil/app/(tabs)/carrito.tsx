@@ -34,7 +34,7 @@ type CarritoCtx ={
     loading: boolean;
     //cambiar cantidad actualiza la cantidad de unproducto 
     cambiarCantidad: (id:string, cantidad:number) => Promise<void>;
-    //eliminar item eliminar unproducto del carrito
+    //eliminar item eliminar un producto del carrito
     eliminarItem: (id:string) => Promise<void>;
     //vaciar carrito eliminar todos los productos del carrito
     vaciarCarrito:() => Promise<void>;

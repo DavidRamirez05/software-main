@@ -1,13 +1,13 @@
 /**
  * Este archivo de pantlla es la lista de pedidos en el panel de administrador
  * muestra todos los pedidos del sistema en una lista paginada ( de 10 por pagina)
- * permite buscar pedidos por texto en tiempo real miestras escribe
- * al precionar un pedido por texto en tiempo real miestras escribe
- * al precionar un pedido navega  a admin/pedidos/[id] para ver el detalle
+ * permite buscar pedidos por texto en tiempo real mientras escribe
+ * al presionar un pedido por texto en tiempo real mientras escribe
+ * al presionar un pedido navega  a admin/pedidos/[id] para ver el detalle
  * 
  */
 
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useState, useEffect, useMemo, use} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
@@ -60,7 +60,7 @@ export default function AdminPedidoScreen(){
     const [pedidos,setPedidos] = useState<Pedido[]>([]);
     //Array de pedidos de la pagina actual
     const [loading, setLoading] = useState(false);
-    //activo miestras de hace pa peticiones api
+    //activo mientras se hace pa peticiones api
     const [errorMessage, setErrorMessage] = useState('');
     //Mensaje de error si falla la carga
     const [busqueda, setBusqueda] = useState('');

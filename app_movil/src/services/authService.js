@@ -28,7 +28,7 @@ const authService = {
     },
 
 
-// registra un nuevo usuario en el backend; no inicia sesion automaticamente
+// registra un nuevo usuario en el backend; no inicia sesión automáticamente
     register: async (data) => {
         const response = await apiClient.post('/auth/register', data);
         return response.data;

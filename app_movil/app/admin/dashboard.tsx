@@ -51,7 +51,7 @@ type StatCard = {
     value: number | string; // valor numerico a mostrar
     icon: keyof typeof Ionicons.glyphMap; // nombre de los iconos
     gradient: [string, string]; // par de colores prinicipal y fondo secundario
-    route: string; // ruta a la que navega al precionar la tarjeta
+    route: string; // ruta a la que navega al presionar la tarjeta
     show:boolean; // si es false la tarjeta no se muestra
 };
 // componente principal de dashborad
@@ -67,7 +67,7 @@ export default function AdminDashboardScreen(){
     /**
      * Estada local
      * objeto con todos los contadores que se muestra en grip de tarjetas
-     * valores iniciales en 0 miestras se cargan
+     * valores iniciales en 0 mientras se cargan
      */
 
     const [stats, setStats] = useState({
@@ -128,7 +128,7 @@ export default function AdminDashboardScreen(){
          * solo carga las estadisticas si el ususario esta autenticado y tiene rol admin o auxiliar
          */
         if (isAuthenticated && (isAdmin || isAux)) load();
-    },[isAuthenticated, isAdmin, isAux]);// se ejecuta segun el rol que inicio sesion
+    },[isAuthenticated, isAdmin, isAux]);// se ejecuta según el rol que inició sesión
 
     // si el usuario no esta autenticado o no tiene rol admn/auxiliar  muestra bloqueo
     if(!isAuthenticated || (!isAdmin && !isAux)){

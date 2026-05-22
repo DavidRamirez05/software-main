@@ -12,7 +12,7 @@
  * useMemo memoriza valores calculados para evitar recalculos innecesarios
  * useState maneja variables de estado local
 */
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useState, useEffect, useMemo} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
@@ -92,7 +92,7 @@ export default function HomeScreen(){
     const [categorias, setCategorias] = useState<any[]>([]);
 
     // Estados de UI 
-    // loading true miestras carga los datos por primera vez
+    // loading true mientras carga los datos por primera vez
     const [loading, setLoading] = useState(true);
     //  refreshing true mientras el usuario hace pull to refresh
     const [refreshing, setRefreshing] = useState(false);
@@ -104,7 +104,7 @@ export default function HomeScreen(){
     const [categoriaActiva, setCategoriaActiva] = useState<any>('all');
     // ProductoDetalle producto seleccionado para ver el modal
     const [productoDetalle, setProductoDetalle] = useState<any>(null);
-    // paginaActual numero de la pagina activa para paginacion emliza en 1
+    // paginaActual número de la página activa para paginación empieza en 1
     const [paginaActual, setPaginaActual] = useState(1);
     // ITEMS_POR_PAGINA numero de productos por pagina
     const ITEMS_POR_PAGINA = 15;
@@ -190,7 +190,7 @@ export default function HomeScreen(){
         const termino= busqueda.trim().toLowerCase();
         //normaliza texto
         return productos.filter((p: any) => {
-            // conincideTexto ek producto tiene el termino en su nombre descripcion
+            // coincide texto el producto tiene el término en su nombre descripción
             const coincideTexto = 
             termino === ''||
             // sin busqueda pasa toda la informacionde

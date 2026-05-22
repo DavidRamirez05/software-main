@@ -8,7 +8,7 @@
 import {Tabs} from 'expo-router';
 //react necesario para que el JSX funcione correctamente
 import React from 'react';
-//hapticTab version personalizado del boton de la pestaña que agrega vibracion tactil (haptic feedback) al precionar el tb
+//hapticTab versión personalizado del botón de la pestaña que agrega vibración táctil (haptic feedback) al presionar el tab
 import {HapticTab} from '../../components/haptic-tab';
 //Iconsymbols componente que muestra iconos  Sf Symbols IOS y materia android
 import {IconSymbol} from '../../components/ui/icon-symbol';
@@ -18,7 +18,7 @@ import {Colors} from '../../constants/theme'
 import {useColorScheme} from '../../hooks/use-color-scheme';
 
 //TabLayout componente principal que configura toda la barra de navegacion
-//expo Router lo exporta como default y lo monta automaticamente
+//expo Router lo exporta como default y lo monta automáticamente
 export default function TabLayout(){
     //ColorShema valor 'ligth' o 'dark' segun la preferencia del sistema
     const colorSheme = useColorScheme();
@@ -27,24 +27,24 @@ export default function TabLayout(){
         //Tabs renderiza la barra de pestañas inferior y gestiona que la pantalla este activa en cada momento
         <Tabs
             screenOptions={{
-                //tabbarAtiveTintCoor color de icono ytexto de la pestaña activa
-                //sincolorsheme es null ( no dectectado) usa light por defecto
+                //tabBarActiveTintColor color de icono y texto de la pestaña activa
+                //si colorScheme es null ( no detectado) usa light por defecto
                 tabBarActiveTintColor: Colors[colorSheme ?? 'light'].tint,
                 //headerShow false oculta el encabezado superior en toda las pantalla
                 headerShown:false,
-                //tabBArButton remplza el boron estandar por hapticTab con vibracion
+                //tabBarButton reemplaza el botón estándar por hapticTab con vibración
                 tabBarButton: HapticTab,
             }}>
         
             {/**pestaña 1 tienda
-             * name = index -> apunta al arechivo /index.tsx (pantalla principal)
+             * name = index -> apunta al archivo /index.tsx (pantalla principal)
              */}
              <Tabs.Screen
                 name = "index"
                 options = {{
-                    //Texto que aparece debajo del iconp de la barra 
+                    //Texto que aparece debajo del icono de la barra 
                     title: 'Tienda Adso',
-                    //tabBarIcon funcion que recibe el color activo o incativo y devuelve el icono
+                    //tabBarIcon función que recibe el color activo o inactivo y devuelve el icono
                     //house.fill = icono de casa rellena ( representa el icono de la tienda)
                     tabBarIcon: ({ color}) => <IconSymbol size ={28}
                     name = "house.fill" color ={color} />,
@@ -52,14 +52,14 @@ export default function TabLayout(){
                 />
 
             {/**pestaña 2 carrito
-             * name = carrito -> apunta al arechivo /carrito.tsx
+             * name = carrito -> apunta al archivo /carrito.tsx
              */}
              <Tabs.Screen
                 name = "carrito"
                 options = {{
-                    //Texto que aparece debajo del iconp de la barra 
+                    //Texto que aparece debajo del icono de la barra 
                     title: 'Carrito',
-                    //tabBarIcon funcion que recibe el color activo o incativo y devuelve el icono
+                    //tabBarIcon función que recibe el color activo o inactivo y devuelve el icono
                     //house.fill = icono de casa rellena ( representa el icono de la tienda)
                     tabBarIcon: ({ color}) => <IconSymbol size ={28}
                     name = "cart.fill" color ={color} />
@@ -67,14 +67,14 @@ export default function TabLayout(){
                 />
 
             {/**pestaña 3 cuenta
-             * name = explore -> apunta al arechivo /explore.tsx
+             * name = explore -> apunta al archivo /explore.tsx
              */}
              <Tabs.Screen
                 name = "explore"
                 options = {{
-                    //Texto que aparece debajo del iconp de la barra 
+                    //Texto que aparece debajo del icono de la barra 
                     title: 'Cuenta',
-                    //tabBarIcon funcion que recibe el color activo o incativo y devuelve el icono
+                    //tabBarIcon función que recibe el color activo o inactivo y devuelve el icono
                     //house.fill = icono de casa rellena ( representa el icono de la tienda)
                     tabBarIcon: ({ color}) => <IconSymbol size ={28}
                     name = "person.circle" color ={color} />

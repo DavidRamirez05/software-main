@@ -15,7 +15,7 @@
  * Text, Muestra texto plano en la pantalla
  * View, contenedor generico equivale a un div en html y css
 */
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useState} from 'react';
 // importar componentes
 import { 
@@ -44,11 +44,11 @@ import { ThemedView } from '../../components/themed-view';
  */
 
 type AuthCtx = {
-    //User datos del ususairo autenticado. null si no  inicio sesion
+    // User datos del usuario autenticado. null si no inició sesión
     user:{ nombre?: string, email?: string, rol?: string} | null;
     //isAuthenticated: true si sesion activa
     isAuthenticated: boolean;
-    // isLoadingSession: true miestras se verifica si hay sesion guardada al abrir la app
+    // isLoadingSession: true mientras se verifica si hay sesión guardada al abrir la app
     isLoadingSession: boolean;
     // login: funcion que recibe el email y contraseña  lanza error si falla
     login: (email:string, password:string) => Promise<unknown>;
@@ -81,7 +81,7 @@ export default function TabTwoScreen(){
     const [confirmPassword, setConfirmPassword] =useState('');
     const [telefono, setTelefono] =useState('');
     const [direccion, setDireccion] =useState('');
-    // loadingSubmit true miestras se procesa el login o registro evita el doble envio
+    // loadingSubmit true mientras se procesa el login o registro evita el doble envío
     const [loadingSubmit, setLoadingSubmit] = useState(false);
     //  mensaje del retroalimentacion al usuario (error o exito)
     const [errorMessage, setErrorMensaje] =useState('');
@@ -94,7 +94,7 @@ export default function TabTwoScreen(){
     const [editNombre, setEditNombre] = useState('');
     const [editEmail, setEditEmail] = useState('');
     const [editPassword, setEditPassword] = useState('');
-    //  savinsPerfil true miestras se guarda el perfil de backend
+    // savingPerfil true mientras se guarda el perfil de backend
     const [savingPerfil, setSavingPerfil] = useState(false);
     // mensajes del formulario de edicion de perdil
     const [perfilError, setPerfilError] = useState('');
@@ -132,7 +132,7 @@ export default function TabTwoScreen(){
             resetFeedback(); // limpia mensajes anteriores antes de validar
 
             if(isRegisterMode){
-                // validacion de regsitro
+                // validación de registro
                 //todos los campos marcados con * son obligatorios
                 if(!nombre||!apellido||!email||!password||!confirmPassword){
                     setErrorMensaje('Completa toso los campos obligatorios *,');

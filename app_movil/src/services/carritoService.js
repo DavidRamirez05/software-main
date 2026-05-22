@@ -1,7 +1,7 @@
 /**
  * modifica el manejo del carrito para dos escenarios
  * usuario sin sesion carrito local asyncStorage
- * usuario autenticado carrito persisitido en el bakckend
+ * usuario autenticado carrito persistido en el backend
  * tambien normaliza la estrutura de items y calcula totales para el contexto consuma siempre un formato consistente
  */
 
@@ -25,7 +25,7 @@ async function readLocalCart() {
     }
 }
 
-// guardar el carrito local completo remplazando el calor anterior
+// guardar el carrito local completo reemplazando el valor anterior
 async function writeLocalCart(items) {
     await storageSetItem(STORAGE_KEYS.carritoLocal, JSON.stringify(items));
     
@@ -73,7 +73,7 @@ const carritoService ={
         return summarize(localItems);
     },
 
-    // agrgar un producto al carrito correspondiente
+    // agregar un producto al carrito correspondiente
     addToCarrito: async ({isAuthenticated, producto, cantidad = 1}) =>{
         if(isAuthenticated){
             await apiClient.post('/cliente/carrito',{

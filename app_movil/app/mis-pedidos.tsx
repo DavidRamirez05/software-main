@@ -105,8 +105,8 @@ export default function MisPedidosScreen() {
   if (!isAuthenticated) {
     return (
       <View style={styles.centered}>
-        <ThemedText type="title">Debes iniciar sesion</ThemedText>
-        <ThemedText style={styles.subtitle}>Inicia sesion para ver tu historial de pedidos.</ThemedText>
+        <ThemedText type="title">Debes iniciar sesión</ThemedText>
+        <ThemedText style={styles.subtitle}>Inicia sesión para ver tu historial de pedidos.</ThemedText>
         <Pressable style={styles.primaryButton} onPress={() => routerReplace('/(tabs)/explore')}>
           <ThemedText style={styles.primaryButtonText}>Ir a Cuenta</ThemedText>
         </Pressable>

@@ -71,7 +71,7 @@ export default function CheckoutScreen() {
   if (!isAuthenticated) {
     return (
       <View style={styles.centered}>
-        <ThemedText type="title">Debes iniciar sesion</ThemedText>
+        <ThemedText type="title">Debes iniciar sesión</ThemedText>
         <ThemedText style={styles.subtitle}>Para finalizar la compra entra en tu cuenta.</ThemedText>
         <Pressable style={styles.primaryButton} onPress={() => routerReplace('/(tabs)/explore')}>
           <ThemedText style={styles.primaryButtonText}>Ir a Cuenta</ThemedText>

@@ -1,6 +1,6 @@
 /**
  * gestiona las consultas publicas del catalogo
- * obtener categorias,producto con filtrod
+ * obtener categorías, producto con filtro
  * construir la url validas para imagenes del backend
  */
 
@@ -22,7 +22,7 @@ const catalogoService = {
         return productos;
     },
 
-    //convierteu una ruta relativa del backend en url completa usable para iamgen
+    //convierte una ruta relativa del backend en url completa usable para imagen
 
     buildImageUrl:(path) => {
         if(!path){

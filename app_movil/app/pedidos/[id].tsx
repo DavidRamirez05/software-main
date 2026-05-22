@@ -1,11 +1,11 @@
 /**
- * Este archivoy y de pedidos del cliente
- * solo es tuta dinamiaca por que se opyine i peiddo por su si Y  usl carga le 
- * pedidos del cliente y muestra los detalles de cada pedido en una modal 
+ * Pantalla de detalle de pedido del cliente
+ * solo es ruta dinámica porque se obtiene el pedido por su ID y la carga lo
+ * pedidos del cliente y muestra los detalles de cada pedido en una pantalla
  * 
  */
-// manejo de variables de estoado local
-import {useState, useEffect, useMemo, use} from 'react';
+// manejo de variables de estado local
+import {useState, useEffect, useMemo} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
 // flatlist lista optimiza con virtializacion para mostrar grandes cantidades de datos
@@ -39,7 +39,7 @@ type Detalle = {
   Producto?: ProductoDetalle; // detalle del producto en respuesta del backend
 };
 
-// escructura princiapl del pedido mostrar en la pantalla
+  // estructura principal del pedido a mostrar en la pantalla
   type Pedido ={
     id: string;
     estado: string;
@@ -57,10 +57,10 @@ type Detalle = {
    * helpers para formatear fecha y el estado del pedido
    */
 
-  // fromatea un numero como pesos colombianos
+  // formatea un numero como pesos colombianos
   function formatCOP(value: number | undefined ): string {
 
-    return`$${Number(value || 0).toLocaleString('es-CO')}`
+    return `$${Number(value || 0).toLocaleString('es-CO')}`
 
   }
   // convierte una fecha ISo a formato legible en español (colombia)
@@ -78,7 +78,7 @@ type Detalle = {
     });
   }
 
-  // traduce estados tecnicos del backend a tiquetas amigables para el usuario
+  // traduce estados técnicos del backend a etiquetas amigables para el usuario
   function mapEstadoLabel(value: string | undefined): string {
     const labels: Record<string, string> ={
       pendiente: 'Pendiente',
@@ -109,10 +109,10 @@ type Detalle = {
     const[errorMessage, setErrorMessage] = useState('');
     const[isCancelling, setIsCancelling] = useState(false);
 
-    // efect de carga de pedido
-    // se ejecuuta cuando id cambua en la ruta 
+    // efecto de carga de pedido
+    // se ejecuta cuando id cambia en la ruta 
     useEffect(()=> {
-      if (pedidoId) {
+      if (!pedidoId) {
        setLoading(false);
        setErrorMessage('no se carga el pedido');
        return;

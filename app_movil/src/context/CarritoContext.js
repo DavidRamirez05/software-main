@@ -1,10 +1,10 @@
 /**
- * Es el contexto gobal del carrito de compras funciona en dos modos segund si el ususario esta autenticado
- * sin session lee y escribe asyncStrorage (carrito local)
- * con session lee y esccribe en backend via apo rest 
- * al iniciar sesion funciona automaticamente el carrito local al bakend para que el usuario
+ * Es el contexto global del carrito de compras, funciona en dos modos según si el usuario está autenticado
+ * sin sesión lee y escribe AsyncStorage (carrito local)
+ * con sesión lee y escribe en backend vía API rest 
+ * al iniciar sesión se fusiona automáticamente el carrito local al backend para que el usuario
  * no pierda los productos agregados sin cuenta 
- * Exponr items totales y las acciones : agregar, cambiar,cantidad, eliminar y vaciar
+ * Expone items, totales y las acciones: agregar, cambiar cantidad, eliminar y vaciar
  */
 
 import {createContext, useState, useEffect, useRef, useContext, useCallback, useMemo } from 'react';
@@ -14,33 +14,33 @@ import carritoService from '../services/carritoService';
 const CarritoContext = createContext(null);
 
 export function CarritoProvider({children}) {
-    //lee isAuthenticated e isloadingSession del contexto de autenticacion
+    // Lee isAuthenticated e isLoadingSession del contexto de autenticación
     const {isAuthenticated, isLoadingSession} = useAuth(); 
 
     //Estado del carrito
     const [items, setItems] = useState([]); // lista de productos
     const [totalItems, setTotalItems] = useState(0); //suma de cantidades
     const [total, setTotal] = useState(0); // precio total
-    const [loading, setLoading] = useState(true); // true miesntras carga el carrito
+    const [loading, setLoading] = useState(true); // true mientras carga el carrito
 
-    // rastear si se usario estaba autenticado en el render anteriror para dectectar en el momento excato de inicio de sesion
+    // rastrea si el usuario estaba autenticado en el render anterior para detectar el momento exacto de inicio de sesión
     const prevAuthenticated = useRef(false);
 
     /**
      * hydrate
-     * carga o recarg el carrito desde el origen correcto local o backend
-     * se llama al montar el previder y despues de cada operacion de escritura
+     * carga o recarga el carrito desde el origen correcto local o backend
+     * se llama al montar el provider y después de cada operación de escritura
      */
 
     const hydrate =useCallback(async () => {
-        // Espera a que authcontex termine de restaurar la sesion gurdad
+        // Espera a que authContext termine de restaurar la sesión guardada
         if
         (isLoadingSession){
             return;
         }
 
         /**
-         *  sube los items del carrito local al backend si el usuario acaba de iniciar sesion
+         *  sube los items del carrito local al backend si el usuario acaba de iniciar sesión
          * asi no se pierden los productos que agrego sin cuenta
          */
 
@@ -57,7 +57,7 @@ export function CarritoProvider({children}) {
 
         setLoading(true);
         try{
-            //getcarrito decide internamente si consulta el backend o el asyncstrorage
+            //getCarrito decide internamente si consulta el backend o el AsyncStorage
             const snapshot = await carritoService.getCarrito(isAuthenticated);
             setItems(snapshot.items);
             setTotalItems(snapshot.totalItems);
@@ -131,8 +131,8 @@ export function CarritoProvider({children}) {
     },[hydrate, isAuthenticated]);
 
     /**
-     * useMemo evita recrear el bojeto en vada render
-     * inecesario
+     * useMemo evita recrear el objeto en cada render
+     * innecesario
      */
 
     const value = useMemo(

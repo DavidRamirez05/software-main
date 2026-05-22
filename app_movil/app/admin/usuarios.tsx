@@ -1,15 +1,15 @@
 
 /**
- * Este archivgestion de usuarios para el panel de administracion
+ * Este archivo: gestión de usuarios para el panel de administración
  * lista todos los usuarios del sistema con nombre, email, rol y estado
- * permite buscar usuario por texto y navegar entre paginas  10 por pagina
- * solo adminis pudee activar, desactivar y eliminar usuarios
- * los auxiliares puede ver la lista pero son botones de accion
+ * permite buscar usuario por texto y navegar entre páginas  10 por página
+ * solo administradores pueden activar, desactivar y eliminar usuarios
+ * los auxiliares pueden ver la lista pero sin botones de acción
  * esta pantalla es con rutas protegidas por api/admin/usuarios
  */
 
 
-// manejo de variables de estoado local
+// manejo de variables de estado local
 import {useEffect, useState} from 'react';
 // importar componentes
 //  Dimensions optiene al ancho y alto de la pantalla para hacer diseños responsivos
@@ -33,7 +33,7 @@ import { useAuth } from '../../src/context/AuthContext';
 
 /**
  * Tipos
- * Estrucutra minima de un usuario para mostrar en la lista
+ * Estructura mínima de un usuario para mostrar en la lista
  */
 type Usuario= {
     id?: string;
@@ -66,9 +66,9 @@ export default function AdminUsuariosScreen(){
     const [totalPaginas, setTotalPaginas] = useState(1); // total de paginas disponibles
 
     /**
-     * Fucion de fetchUsuarios
-     * consulta get/admin/usuarios con filtro de busqueda y paginacion
-     * page pagina a cargar.  search  texto de filtro 
+     * Función de fetchUsuarios
+     * consulta get/admin/usuarios con filtro de búsqueda y paginación
+     * page página a cargar.  search  texto de filtro 
      */
 
     const fetchUsuarios = async (page = 1, search = '') => {
